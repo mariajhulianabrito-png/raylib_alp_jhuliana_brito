@@ -2,9 +2,13 @@
 
 int main()
 {
-    int posX = 0;  // Onde o quadrado está no eixo horizontal
+    int posX = 0;
 
     InitWindow(800, 450, "basic window");
+
+    SetTargetFPS(10); 
+    SetTargetFPS(30);
+    SetTargetFPS(60); // Diz ao Raylib quantas vezes por segundo o loop do jogo deve rodar
 
     while (!WindowShouldClose())
     {
@@ -17,10 +21,6 @@ int main()
         DrawRectangle(posX, 100, 100, 100, BLUE);
 
         EndDrawing();
-    }
-    if (posX > 800)
-    {
-    posX = 0;
     }
 
     CloseWindow();
