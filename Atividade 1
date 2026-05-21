@@ -2,41 +2,34 @@
 
 int main()
 {
-    float lentoX = -100;
-    float rapidoX = -100;
+    float posX = -100; // posição do sprite (começa fora da tela à esquerda)
 
-    Texture2D feliz;
+    Texture2D sprite;
 
-    InitWindow(800, 450, "Velocidades Diferentes");
+    InitWindow(800, 450, "basic window");
 
-    feliz = LoadTexture("feliz.png");
+    sprite = LoadTexture("sprite.png");
 
     while (!WindowShouldClose())
     {
-        lentoX += GetFrameTime() * 100;
-        rapidoX += GetFrameTime() * 600;
+        posX += GetFrameTime() * 300;
+        posX += GetFrameTime() * 100;
+        posX += GetFrameTime() * 600;
 
-        if (lentoX > 800)
+        if (posX > 800)
         {
-            lentoX = -100;
-        }
-
-        if (rapidoX > 800)
-        {
-            rapidoX = -100;
+            posX = -100;
         }
 
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        DrawTexture(feliz, lentoX, 100, WHITE);
-        DrawTexture(feliz, rapidoX, 250, WHITE);
+        DrawTexture(sprite, posX, 10, WHITE);
 
         EndDrawing();
     }
 
-    UnloadTexture(feliz);
     CloseWindow();
 
     return 0;
