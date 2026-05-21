@@ -2,29 +2,41 @@
 
 int main()
 {
+    float lentoX = -100;
+    float rapidoX = -100;
+
     Texture2D feliz;
-    Texture2D inimigo;  // Vou ter uma imagem chamada sprite
 
-    InitWindow(800, 450, "basic window");
+    InitWindow(800, 450, "Velocidades Diferentes");
 
-    feliz = LoadTexture("feliz.png");   
-    inimigo = LoadTexture("inimigo.png");// Carregue a imagem sprite.png para usar no jogo
+    feliz = LoadTexture("feliz.png");
 
     while (!WindowShouldClose())
     {
+        lentoX += GetFrameTime() * 100;
+        rapidoX += GetFrameTime() * 600;
+
+        if (lentoX > 800)
+        {
+            lentoX = -100;
+        }
+
+        if (rapidoX > 800)
+        {
+            rapidoX = -100;
+        }
+
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        DrawTexture(feliz, 10, 10, WHITE);
-        DrawTexture(inimigo, 20, 20, WHITE);
+        DrawTexture(feliz, lentoX, 100, WHITE);
+        DrawTexture(feliz, rapidoX, 250, WHITE);
 
         EndDrawing();
     }
-    
-    UnloadTexture(feliz);
-    UnloadTexture(inimigo);
 
+    UnloadTexture(feliz);
     CloseWindow();
 
     return 0;
