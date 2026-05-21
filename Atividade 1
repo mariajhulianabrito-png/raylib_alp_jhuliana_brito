@@ -2,41 +2,25 @@
 
 int main()
 {
-    InitWindow(800, 600, "Meu Primeiro Game");
+    int posX = 0;  // Onde o quadrado está no eixo horizontal
 
-    while (!WindowShouldClose())
-    {
-        BeginDrawing();
-
-        ClearBackground(RAYWHITE);
-
-        DrawText("Bem-vindo ao Raylib", 380, 380, 40, BLUE);
-        DrawText("Pressione ESC para sair", 390, 390, 20, BLACK);
-
-        EndDrawing();
-    }
-
-    CloseWindow();
-
-    return 0;
-}
-#include "raylib.h"
-
-int main()
-{
     InitWindow(800, 450, "basic window");
 
     while (!WindowShouldClose())
     {
+        posX++;
+
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        DrawRectangle(100, 100, 100, 100, RED);
-        DrawRectangle(200, 200, 100, 100, GREEN);
-        DrawRectangle(300, 300, 100, 100, YELLOW);
+        DrawRectangle(posX, 100, 100, 100, BLUE);
 
         EndDrawing();
+    }
+    if (posX > 800)
+    {
+    posX = 0;
     }
 
     CloseWindow();
